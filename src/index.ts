@@ -177,7 +177,7 @@ async function closeProjectWindows(ide: string, paths: string[]): Promise<void> 
 export default defineIntegration<State>({
   emptyState: { projects: [], running: [] },
   manifest: {
-    id: 'com.focus.jetbrains',
+    id: 'sh.snapback.jetbrains',
     name: 'JetBrains IDEs',
     version: '1.0.0',
     schemaVersion: 1,

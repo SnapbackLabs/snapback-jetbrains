@@ -1,6 +1,6 @@
 # JetBrains IDEs
 
-A Snapback integration (`com.focus.jetbrains`). Reopens your IntelliJ/WebStorm/PyCharm projects on restore.
+A Snapback integration (`sh.snapback.jetbrains`). Reopens your IntelliJ/WebStorm/PyCharm projects on restore.
 
 ## Build
 
