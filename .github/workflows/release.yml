@@ -1,0 +1,29 @@
+# Build the integration bundle and publish it as a GitHub Release asset.
+# Triggered by pushing a version tag (e.g. `git tag v1.2.0 && git push --tags`):
+# the release is created with `integration.mjs` already attached, so by the time
+# the "release published" event reaches Snapback the asset is present and the
+# registry auto-updates.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install
+      - run: npm run build
+      - name: Publish release with bundle
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: dist/integration.mjs
